@@ -1,4 +1,4 @@
-// import './App.css';
+import './index.scss';
 import { Routes, Route } from 'react-router-dom'
 
 function App() {
