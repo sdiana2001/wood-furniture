@@ -1,7 +1,7 @@
 import styles from './Header.module.scss';
-import logoImg from '../assets/logo/logo.svg';
-import personIcon from '../assets/icons/person-outline.svg';
-import bellIcon from '../assets/icons/bell-outline.svg';
+import logoImg from '../../assets/logo/logo.svg';
+import personIcon from '../../assets/icons/person-outline.svg';
+import bellIcon from '../../assets/icons/bell-outline.svg';
 
 
 const Header = () => {
