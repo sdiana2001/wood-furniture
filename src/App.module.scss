@@ -1,0 +1,23 @@
+.app {
+  min-height: 100vh;
+  background-color: #5c2f0d; // Коричневый внешние поля, как на макете
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 40px 20px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1000px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}

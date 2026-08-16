@@ -1,0 +1,50 @@
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 40px;
+    background-color: #fff;
+
+    .nav {
+        display: flex;
+        gap: 28px;
+
+        a {
+            text-decoration: none;
+            color: #666;
+            font-size: 14px;
+            font-weight: 400;
+            transition: color 0.2s;
+
+            &:hover,
+            &.active {
+                color: var(--color-accent-hover);
+            }
+        }
+    }
+
+    .actions {
+        display: flex;
+        gap: 10px;
+
+        .iconBtn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: var(--color-accent);
+            border: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+
+             &:hover{
+                background-color: var(--color-base);
+            }
+        }
+
+         
+    }
+}
