@@ -19,7 +19,7 @@ const ItemBlock = ({ image, title, price, rating = 5 }: ItemBlockProps) => {
         <div className={styles.rating}>
           {'★'.repeat(rating)}
         </div>
-        <div className={styles.price}>{price}</div>
+        <div className={styles.price}>{price} сом</div>
         <button className={styles.button} type="button">Add to Cart</button>
       </div>
     </div>

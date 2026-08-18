@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../redux/slices/productSlice';
 import type { AppDispatch, RootState } from "../redux/store";
 import ItemBlock from "../components/ItemBlock/ItemBlock";
+import Contact from "../components/Contact/Contact";
 
 
 const Home = () => {
@@ -21,7 +22,7 @@ const Home = () => {
   }
   return (<>
    <Collection />
-        <h2 className="title">Best Selling Item</h2>
+        <h2 className="myTitle">Best Selling Item</h2>
       <section className="products-grid">
         {status === 'loading' ? (
           <div>Загрузка...</div>
@@ -31,6 +32,7 @@ const Home = () => {
           ))
         )}
       </section>
+      <Contact />
        </>
   )
 }
