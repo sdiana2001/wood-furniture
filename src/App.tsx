@@ -3,7 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import './index.scss'
 import Header from './components/Header/Header';
 import Promo from './components/Promo/Promo';
-import Collection from './components/Collection/Collection';
+import Home from './pages/Home';
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
             {/* <Route path="/products" element={<ProductsPage />} /> */}
             {/* <Route path="/cart" element={<CartPage />} /> */}
           </Routes>
-        <Collection />
+          <Home />
         </main>
       </div>
     </div>
