@@ -1,10 +1,10 @@
-import ItemBlock from "../ItemBlock/ItemBlock";
+// import ItemBlock from "../ItemBlock/ItemBlock";
 
-const Best = () => {
-  return (
-           <ItemBlock image={} title={} price={} /> 
+// const Best = () => {
+//   return (
+//           //  <ItemBlock image={} title={} price={} /> 
 
-  )
-}
+//   )
+// }
 
-export default Best;
+// export default Best;

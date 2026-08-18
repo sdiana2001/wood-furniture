@@ -1,11 +1,12 @@
 import styles from './ItemBlock.module.scss';
 
-// interface ItemBlockProps {
-//   image: string;
-//   title: string;
-//   price: string;
-//   rating?: number;
-// }
+interface ItemBlockProps {
+ id: string;
+  title: string;
+  price: number;
+  image: string;
+  rating: number;
+}
 
 const ItemBlock = ({ image, title, price, rating = 5 }: ItemBlockProps) => {
   return (

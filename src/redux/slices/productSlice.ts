@@ -5,7 +5,7 @@ export type TProduct = {
   id: string;
   title: string;
   price: number;
-  imageUrl: string;
+  image: string;
   rating: number;
 };
 
@@ -27,8 +27,8 @@ export const fetchProducts = createAsyncThunk<TProduct[], void, { rejectValue: s
   async (_, thunkAPI) => {
     try {
       const { data } = await axios.get<TProduct[]>(
-        `https://66a904f6e40d3aa6ff5a4dc3.mockapi.io/item`,
-        { signal: thunkAPI.signal }, 
+        `https://6a84284553754283b0b83373.mockapi.io/items`,
+        { signal: thunkAPI.signal },
       );
 
       return data;

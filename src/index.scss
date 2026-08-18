@@ -1,2 +1,12 @@
 @import './scss/base.scss';
 @import './scss/variables.scss';
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 50px 40px;
+  justify-items: center;
+}

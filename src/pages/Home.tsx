@@ -21,9 +21,8 @@ const Home = () => {
   }
   return (<>
    <Collection />
-
-      <section>
-        <h2>Best Selling Item</h2>
+        <h2 className="title">Best Selling Item</h2>
+      <section className="products-grid">
         {status === 'loading' ? (
           <div>Загрузка...</div>
         ) : (
