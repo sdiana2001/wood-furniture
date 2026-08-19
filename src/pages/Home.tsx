@@ -5,6 +5,7 @@ import { fetchProducts } from '../redux/slices/productSlice';
 import type { AppDispatch, RootState } from "../redux/store";
 import ItemBlock from "../components/ItemBlock/ItemBlock";
 import Contact from "../components/Contact/Contact";
+import Promo from "../components/Promo/Promo";
 
 
 const Home = () => {
@@ -21,6 +22,7 @@ const Home = () => {
     return <div className="error">Произошла ошибка при загрузке товаров 😕</div>;
   }
   return (<>
+  <Promo />
    <Collection />
         <h2 className="myTitle">Best Selling Item</h2>
       <section className="products-grid">
