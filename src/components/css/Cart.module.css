@@ -1,0 +1,176 @@
+@charset "UTF-8";
+.container {
+  max-width: 1140px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: inherit;
+  color: #1a1a1a;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.itemList {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.itemCard {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
+  gap: 20px;
+}
+@media (max-width: 600px) {
+  .itemCard {
+    flex-wrap: wrap;
+  }
+}
+
+.itemImage {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 50%; /* В стиле круглых карточек из вашей коллекции */
+  background-color: #f5f5f5;
+}
+
+.itemDetails {
+  flex: 1;
+}
+.itemDetails h3 {
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0 0 6px 0;
+}
+
+.itemPrice {
+  color: #707070;
+  font-size: 14px;
+}
+
+.quantityControls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background-color: #fcfbfa;
+  padding: 6px 12px;
+  border-radius: 20px;
+}
+.quantityControls button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #1a1a1a;
+  padding: 0 4px;
+}
+.quantityControls button:hover {
+  color: #e08a24;
+}
+.quantityControls span {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.itemTotal {
+  font-weight: 600;
+  font-size: 16px;
+  min-width: 100px;
+  text-align: right;
+}
+
+.removeBtn {
+  border: none;
+  background: none;
+  color: #ccc;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 8px;
+  transition: color 0.2s;
+}
+.removeBtn:hover {
+  color: #e74c3c;
+}
+
+/* Саммари чека */
+.summaryCard {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.06);
+}
+.summaryCard h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.summaryRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #707070;
+}
+
+.freeText {
+  color: #27ae60;
+  font-weight: 500;
+}
+
+.totalRow {
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.checkoutBtn {
+  width: 100%;
+  padding: 14px 0;
+  background-color: #e08a24;
+  color: #ffffff;
+  border: none;
+  border-radius: 24px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  margin-top: 12px;
+}
+.checkoutBtn:hover {
+  background-color: rgb(196.4868, 119.3276, 27.8132);
+}
+.checkoutBtn:active {
+  transform: scale(0.98);
+}
+
+.empty {
+  text-align: center;
+  padding: 60px 0;
+  color: #707070;
+}

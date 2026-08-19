@@ -1,0 +1,48 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", system-ui, -apple-system, sans-serif;
+  background-color: var(--color-base);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+.myTitle {
+  font-weight: 500;
+  font-size: 28px;
+  color: #000;
+  display: flex;
+  justify-content: center;
+}
+
+:root {
+  --color-base: #65360D;
+  --color-accent: #d48d3b;
+  --color-accent-hover: #ECA52F;
+  --color-text-muted: #666666;
+  --color-white: #ffffff;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 50px 40px;
+  justify-items: center;
+}
