@@ -1,3 +1,5 @@
+import { addItem } from '../../redux/slices/cartSlice';
+import { useAppDispatch } from '../../redux/store';
 import styles from './ItemBlock.module.scss';
 
 interface ItemBlockProps {
@@ -8,7 +10,12 @@ interface ItemBlockProps {
   rating: number;
 }
 
-const ItemBlock = ({ image, title, price, rating = 5 }: ItemBlockProps) => {
+const ItemBlock = ({ id, image, title, price, rating = 5 }: ItemBlockProps) => {
+  const dispatch = useAppDispatch();
+ const onClickAdd = ()=>{
+  const item = {id, title, price, image}
+dispatch(addItem(item));
+ }
   return (
     <div className={styles.card}>
       <div className={styles.imageWrapper}>
@@ -20,7 +27,7 @@ const ItemBlock = ({ image, title, price, rating = 5 }: ItemBlockProps) => {
           {'★'.repeat(rating)}
         </div>
         <div className={styles.price}>{price} сом</div>
-        <button className={styles.button} type="button">Add to Cart</button>
+        <button onClick={onClickAdd} className={styles.button} type="button">Add to Cart</button>
       </div>
     </div>
   );

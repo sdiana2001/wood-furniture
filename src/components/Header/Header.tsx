@@ -1,7 +1,8 @@
 import styles from './Header.module.scss';
 import logoImg from '../../assets/logo/logo.svg';
-import personIcon from '../../assets/icons/person-outline.svg';
-import bellIcon from '../../assets/icons/bell-outline.svg';
+import personIcon from '../../assets/icons/person.svg';
+import cart from '../../assets/icons/cart.svg';
+import { NavLink } from 'react-router-dom';
 
 
 const Header = () => {
@@ -21,9 +22,10 @@ const Header = () => {
         <button className={styles.iconBtn}>
             <img src={personIcon} alt="person" />
         </button>
-        <button className={styles.iconBtn}>
-            <img src={bellIcon} alt="bell" />
-        </button>
+        <NavLink to="/cart"  className={({ isActive }) =>  isActive ? `${styles.iconBtn} ${styles.active}` : styles.iconBtn}>
+            <img src={cart} alt="cart" />
+        </NavLink>
+     
       </div>
     </header>
   )

@@ -1,4 +1,3 @@
-
 .header {
     display: flex;
     align-items: center;
@@ -30,8 +29,8 @@
         gap: 10px;
 
         .iconBtn {
-            width: 32px;
-            height: 32px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background-color: var(--color-accent);
             border: none;
@@ -40,12 +39,19 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
+            transition: all 0.4s;
 
-             &:hover{
-                background-color: var(--color-base);
+            &:hover {
+                background-color: var(--color-accent-hover);
+            }
+
+            &.active {
+                background-color: #febf5a; // Оранжевый акцентный цвет
+            }
+
+            img {
+                width: 20px;
             }
         }
-
-         
     }
 }

@@ -25,8 +25,8 @@
   gap: 10px;
 }
 .header .actions .iconBtn {
-  width: 32px;
-  height: 32px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
   background-color: var(--color-accent);
   border: none;
@@ -35,7 +35,14 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  transition: all 0.4s;
 }
 .header .actions .iconBtn:hover {
-  background-color: var(--color-base);
+  background-color: var(--color-accent-hover);
+}
+.header .actions .iconBtn.active {
+  background-color: #febf5a;
+}
+.header .actions .iconBtn img {
+  width: 20px;
 }

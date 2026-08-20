@@ -23,7 +23,7 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem(state, action) {
+    addItem(state, action: PayloadAction<Omit<CartItems, 'quantity'>>) {
       const findItem = state.items.find((obj) => obj.id === action.payload.id);
       if (findItem) {
         findItem.quantity++;
@@ -55,8 +55,6 @@ const cartSlice = createSlice({
         state.items = [];
         state.totalPrice = 0;
     }
-
-
   },
 });
 
