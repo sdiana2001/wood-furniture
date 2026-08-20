@@ -1,5 +1,6 @@
+// import { useState } from 'react';
 import { addItem } from '../../redux/slices/cartSlice';
-import { useAppDispatch } from '../../redux/store';
+import { useAppDispatch, useAppSelector } from '../../redux/store';
 import styles from './ItemBlock.module.scss';
 
 interface ItemBlockProps {
@@ -11,11 +12,20 @@ interface ItemBlockProps {
 }
 
 const ItemBlock = ({ id, image, title, price, rating = 5 }: ItemBlockProps) => {
+    // const [productCount, setProductCount] = useState(0);
   const dispatch = useAppDispatch();
- const onClickAdd = ()=>{
+
+  const cartItem = useAppSelector((state)=> state.cart.items.find((obj) => obj.id === id));
+
+  const productCount = cartItem ? cartItem.count : 0;
+
+ const onClickAdd = () => {
   const item = {id, title, price, image}
-dispatch(addItem(item));
+  dispatch(addItem(item));
  }
+
+
+
   return (
     <div className={styles.card}>
       <div className={styles.imageWrapper}>
@@ -27,7 +37,9 @@ dispatch(addItem(item));
           {'★'.repeat(rating)}
         </div>
         <div className={styles.price}>{price} сом</div>
-        <button onClick={onClickAdd} className={styles.button} type="button">Add to Cart</button>
+        <button onClick={onClickAdd} className={styles.button} type="button">
+          {productCount > 0 ? `Add to Cart (${productCount})` : 'Add to Cart'}
+          </button> 
       </div>
     </div>
   );

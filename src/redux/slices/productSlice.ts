@@ -32,7 +32,7 @@ export const fetchProducts = createAsyncThunk<TProduct[], FetchProductArgs, { re
   async ({categoryId}, thunkAPI) => {
     try {
       //  Если выбрано 'all', параметр не добавляем. Если конкретная категория — формируем query-параметр для MockAPI
-      const categoryParam = categoryId && categoryId !== 'all' ? `category = ${categoryId}` : '';
+      const categoryParam = categoryId && categoryId !== 'all' ? `category=${categoryId}` : `rating=5`;
 
       const { data } = await axios.get<TProduct[]>(
         `https://6a84284553754283b0b83373.mockapi.io/allItems?${categoryParam}`,

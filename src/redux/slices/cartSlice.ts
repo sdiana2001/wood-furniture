@@ -1,12 +1,13 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 
 
-export interface CartItems { //Описала тип одного товара
-    id:string;
-    title: string;
-    price: number;
-    quantity: number;
-    image: string;
+export interface CartItems {
+  //Описала тип одного товара
+  id: string;
+  title: string;
+  price: number;
+  count: number;
+  image: string;
 }
 
 interface CartState { // Описываем все состояния которые есть в корзине
@@ -23,32 +24,33 @@ const cartSlice = createSlice({
   name: 'cart',
   initialState,
   reducers: {
-    addItem(state, action: PayloadAction<Omit<CartItems, 'quantity'>>) {
+
+    addItem(state, action: PayloadAction<Omit<CartItems, 'count'>>) {
       const findItem = state.items.find((obj) => obj.id === action.payload.id);
       if (findItem) {
-        findItem.quantity++;
+        findItem.count++;
       } else {
-        state.items.push({ ...action.payload, quantity: 1 });
+        state.items.push({ ...action.payload, count: 1 });
       }
-      state.totalPrice = state.items.reduce((sum, obj) => sum + obj.price * obj.quantity, 0);
+      state.totalPrice = state.items.reduce((sum, obj) => sum + obj.price * obj.count, 0);
     },
 
     minusItem(state, action: PayloadAction<string>) {
       const findItem = state.items.find((obj) => obj.id === action.payload);
 
       if (findItem) {
-        if (findItem.quantity > 1) {
-          findItem.quantity--;
+        if (findItem.count > 1) {
+          findItem.count--;
         } else {
           state.items = state.items.filter((obj) => obj.id !== action.payload);
         }
       }
-      state.totalPrice = state.items.reduce((sum, obj) => sum + obj.price * obj.quantity, 0);
+      state.totalPrice = state.items.reduce((sum, obj) => sum + obj.price * obj.count, 0);
     },
 
     removeItem(state, action: PayloadAction<string>) {
         state.items = state.items.filter((obj) => obj.id !== action.payload);
-        state.totalPrice = state.items.reduce((sum, obj) => sum + obj.price * obj.quantity ,0)
+        state.totalPrice = state.items.reduce((sum, obj) => sum + obj.price * obj.count, 0);
     },
 
     clearItems(state){

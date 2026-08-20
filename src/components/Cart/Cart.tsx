@@ -3,6 +3,7 @@ import { addItem, minusItem, removeItem } from '../../redux/slices/cartSlice';
 import { useAppDispatch, useAppSelector } from '../../redux/store';
 import styles from './Cart.module.scss';
 
+
 const Cart = () => {
   const dispatch = useAppDispatch();
   const {items, totalPrice} = useAppSelector((state) => state.cart);
@@ -35,12 +36,11 @@ const Cart = () => {
 
             <div className={styles.quantityControls}>
               <button type="button" onClick={()=> dispatch(minusItem(item.id))}>-</button>
-              <span>1</span>
+              <span>{item.count}</span>
               <button type="button" onClick={()=> dispatch(addItem(item))}>+</button>
             </div>
 
-            <div className={styles.itemTotal}> {(item.price * item.quantity).toLocaleString()} coм </div>
-
+            <div className={styles.itemTotal}> {(item.price * item.count).toLocaleString()} coм </div>
             <button className={styles.removeBtn} type="button" aria-label="Remove item" onClick={()=> dispatch(removeItem(item.id))}>
               ✕
             </button>

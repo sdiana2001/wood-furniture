@@ -46,3 +46,8 @@ button {
   padding: 50px 40px;
   justify-items: center;
 }
+
+.waiting {
+  text-align: center;
+  font-size: 20px;
+}

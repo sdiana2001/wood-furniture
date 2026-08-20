@@ -24,15 +24,16 @@ const Home = () => {
   return (<>
   <Promo />
    <Collection />
-        <h2 className="myTitle">Best Selling Item</h2>
+        <h2 className="myTitle" style={{ textTransform: 'capitalize' }}>
+          {categoryId === 'all' ? 'Best Selling Item' : categoryId}
+         </h2>
       <section className="products-grid">
         {status === 'loading' ? (
-          <div>Загрузка...</div>
+          <div className="waiting">Подождите немного...</div>
         ) : (
           products.map((obj) => (
             <ItemBlock {...obj} key={obj.id} />
-          ))
-        )}
+          )))}
       </section>
       <Contact />
        </>
