@@ -10,12 +10,13 @@ import Promo from "../components/Promo/Promo";
 const Home = () => {
     const dispatch = useAppDispatch();
       const { products, status } = useAppSelector((state) => state.product);
+      const { categoryId } = useAppSelector((state) => state.filter);
 
 
  useEffect(() => {
     // Вызываем загрузку товаров без аргументов
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    dispatch(fetchProducts({categoryId}));
+  }, [dispatch, categoryId]);
 
   if (status === 'error') {
     return <div className="error">Произошла ошибка при загрузке товаров 😕</div>;
