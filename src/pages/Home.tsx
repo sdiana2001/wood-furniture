@@ -1,16 +1,15 @@
 import { useEffect } from "react";
 import Collection from "../components/Collection/Collection";
-import { useSelector, useDispatch } from 'react-redux';
 import { fetchProducts } from '../redux/slices/productSlice';
-import type { AppDispatch, RootState } from "../redux/store";
+import { useAppDispatch, useAppSelector } from "../redux/store";
 import ItemBlock from "../components/ItemBlock/ItemBlock";
 import Contact from "../components/Contact/Contact";
 import Promo from "../components/Promo/Promo";
 
 
 const Home = () => {
-    const dispatch = useDispatch<AppDispatch>();
-      const { products, status } = useSelector((state: RootState) => state.product);
+    const dispatch = useAppDispatch();
+      const { products, status } = useAppSelector((state) => state.product);
 
 
  useEffect(() => {

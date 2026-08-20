@@ -2,21 +2,21 @@ import styles from './Header.module.scss';
 import logoImg from '../../assets/logo/logo.svg';
 import personIcon from '../../assets/icons/person.svg';
 import cart from '../../assets/icons/cart.svg';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 
 const Header = () => {
   return (
     <header className={styles.header}>
-      <div className={styles.logo}>
+      <Link to="/" className={styles.logo}>
         <img src={logoImg} alt="logo" />
-      </div>
+      </Link>
       <nav className={styles.nav}>
-        <a href="#" className={styles.active}>Home</a>
-        <a href="#">Products</a>
-        <a href="#">Shop</a>
-        <a href="#">About</a>
-        <a href="#">Contact</a>
+        <NavLink to="/" className={({ isActive }) => (isActive ? styles.active : '')}>Home</NavLink> {/* ' ' — пустая строка, которая вернется, если isActive === false */}
+        <NavLink to="products" className={({ isActive }) => (isActive ? styles.active : '')}>Products</NavLink>
+        <NavLink to="/shop" className={({ isActive }) => (isActive ? styles.active : '')}>Shop</NavLink>
+        <NavLink to="/about" className={({ isActive }) => (isActive ? styles.active : '')}>About</NavLink>
+        <NavLink to="/contact" className={({ isActive }) => (isActive ? styles.active : '')}>Contact</NavLink>
       </nav>
       <div className={styles.actions}>
         <button className={styles.iconBtn}>
@@ -25,7 +25,6 @@ const Header = () => {
         <NavLink to="/cart"  className={({ isActive }) =>  isActive ? `${styles.iconBtn} ${styles.active}` : styles.iconBtn}>
             <img src={cart} alt="cart" />
         </NavLink>
-     
       </div>
     </header>
   )

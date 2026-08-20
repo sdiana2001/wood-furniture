@@ -3,7 +3,6 @@ import { Routes, Route } from 'react-router-dom';
 import './index.scss'
 import Header from './components/Header/Header';
 import Home from './pages/Home';
-import TableBlock from './components/TableBlock/TableBlock';
 import Cart from './components/Cart/Cart';
 
 
@@ -16,7 +15,6 @@ function App() {
         <main className={styles.main}>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/table" element={<TableBlock />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </main>

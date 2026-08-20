@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+
 export type TProduct = {
   id: string;
   title: string;
@@ -21,13 +22,20 @@ const initialState: IProductSliceState = {
   status: 'loading', 
 };
 
+interface FetchProductArgs {
+  categoryId: string;
+}
+
 // First, create the thunk
-export const fetchProducts = createAsyncThunk<TProduct[], void, { rejectValue: string }>(
+export const fetchProducts = createAsyncThunk<TProduct[], FetchProductArgs, { rejectValue: string }>(
   'product/fetchProductStatus',
-  async (_, thunkAPI) => {
+  async ({categoryId}, thunkAPI) => {
     try {
+      //  Если выбрано 'all', параметр не добавляем. Если конкретная категория — формируем query-параметр для MockAPI
+      const categoryParam = categoryId && categoryId !== 'all' ? `category = ${categoryId}` : '';
+
       const { data } = await axios.get<TProduct[]>(
-        `https://6a84284553754283b0b83373.mockapi.io/items`,
+        `https://6a84284553754283b0b83373.mockapi.io/allItems?${categoryParam}`,
         { signal: thunkAPI.signal },
       );
 
