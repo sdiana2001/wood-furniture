@@ -16,7 +16,7 @@ const Cart = () => {
         <div className={styles.empty}>
           <p>Ваша корзина пуста 🛒</p>
         </div>
-      ): (
+      ):(
 
       <div className={styles.layout}>
         {/* Список товаров */}

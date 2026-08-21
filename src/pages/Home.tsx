@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../redux/store";
 import ItemBlock from "../components/ItemBlock/ItemBlock";
 import Contact from "../components/Contact/Contact";
 import Promo from "../components/Promo/Promo";
+import Skeleton from '../components/ItemBlock/Skeleton';
 
 
 const Home = () => {
@@ -12,11 +13,17 @@ const Home = () => {
       const { products, status } = useAppSelector((state) => state.product);
       const { categoryId } = useAppSelector((state) => state.filter);
 
+      const skeletonCount = categoryId === 'all' ? 16 : 4;
 
  useEffect(() => {
     // Вызываем загрузку товаров без аргументов
     dispatch(fetchProducts({categoryId}));
   }, [dispatch, categoryId]);
+
+
+
+const skeletons = [...new Array(skeletonCount)].map((_, index) => <Skeleton key={index} />);
+
 
   if (status === 'error') {
     return <div className="error">Произошла ошибка при загрузке товаров 😕</div>;
@@ -29,7 +36,7 @@ const Home = () => {
          </h2>
       <section className="products-grid">
         {status === 'loading' ? (
-          <div className="waiting">Подождите немного...</div>
+          skeletons
         ) : (
           products.map((obj) => (
             <ItemBlock {...obj} key={obj.id} />
