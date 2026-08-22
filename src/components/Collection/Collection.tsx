@@ -3,9 +3,10 @@ import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import styles from './Collection.module.scss';
-import { useAppSelector, type AppDispatch } from '../../redux/store';
+import { type AppDispatch } from '../../redux/store';
 import { useDispatch } from 'react-redux';
 import { setCategoryId } from '../../redux/slices/filterSlice';
+import { useNavigate, useParams } from 'react-router-dom'; 
 
 const categories = [
   { id: 'chair', title: 'Chair', img: '/collection/Chair.png' },
@@ -16,9 +17,16 @@ const categories = [
 ];
 
 const Collection = () => {
-    const dispatch = useDispatch<AppDispatch>();
-    const activeCategoryId = useAppSelector((state)=> state.filter.categoryId);
+  const dispatch = useDispatch<AppDispatch>();
+  const navigate = useNavigate(); 
+  const { categorySlug } = useParams<{ categorySlug?: string }>();
 
+  const activeCategory = categorySlug || 'all';
+
+  const onClickCategory = (id: string) => {
+    dispatch(setCategoryId(id));
+    navigate(`/category/${id}`);
+  };
 
   return (
     <section className={styles.collection}>
@@ -47,8 +55,9 @@ const Collection = () => {
           {categories.map((item) => (
             <SwiperSlide key={item.id} className={styles.slide}>
               <div 
-              onClick={() => 
-                dispatch(setCategoryId(item.id))} className={`${styles.card } ${activeCategoryId === item.id ? styles.active : '' }`}>
+                onClick={() => onClickCategory(item.id)} 
+                className={`${styles.card} ${activeCategory === item.id ? styles.active : ''}`}
+              >
                 <div className={styles.imgWrapper}>
                   <img src={item.img} alt={item.title} />
                 </div>

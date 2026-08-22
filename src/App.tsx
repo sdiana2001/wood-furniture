@@ -15,6 +15,7 @@ function App() {
         <main className={styles.main}>
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/category/:categorySlug" element={<Home />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
         </main>
